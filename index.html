@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPHINX-PORTAL</title>
+    <style>
+        @font-face {
+            font-family: 'century';
+            src: url('fonts/century-bold.eot') format('embedded-opentype'), 
+                 url('fonts/century-bold.woff') format('woff'), 
+                 url('fonts/century-bold.ttf') format('truetype'), 
+                 url('fonts/century-bold.svg') format('svg');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'fontawesome';
+            src: url('fonts/fontawesome-webfont.eot?3p0rtw');
+            src: url('fonts/fontawesome-webfont.eot?#iefix3p0rtw') format('embedded-opentype'), 
+                 url('fonts/fontawesome-webfont.woff?3p0rtw') format('woff'), 
+                 url('fonts/fontawesome-webfont.ttf?3p0rtw') format('truetype'), 
+                 url('fonts/fontawesome-webfont.svg?3p0rtw#fontawesome-webfont') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body, html {
+            height: 100%;
+            overflow: hidden;
+            width: 100%;
+            margin: 0;
+            font-family: century;
+        }
+
+        .vbox {
+            border-spacing: 0;
+            display: table;
+            height: 100%;
+            position: relative;
+            width: 100%;
+        }
+
+        .header {
+            height: 120px;
+            max-height: 120px;
+            position: relative;
+            display: block;
+            text-align: center;
+        }
+
+        .header img {
+            height: 100px;
+            margin: 10px 0;
+        }
+
+        .spliter {
+            height: 8px;
+            background-color: #0b67b2;
+            display: block;
+        }
+
+        .spliter .orange {
+            height: 8px;
+            width: 26%;
+            background-color: #f58220;
+        }
+
+        .hbox {
+            border-spacing: 0;
+            display: table;
+            table-layout: fixed;
+            width: 100%;
+            height: 100%;
+            background: #4981c2 url("background.jpg") no-repeat center bottom fixed;
+            background-size: cover;
+            position: relative;
+        }
+
+        .form-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 350px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.35);
+            border-radius: 5px;
+        }
+
+        .form {
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .input_field {
+            position: relative;
+            margin-bottom: 15px;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 3px;
+        }
+
+        .input_field > span {
+            position: absolute;
+            left: 3px;
+            top: 5px;
+            color: #8a8c8e;
+            height: 20px;
+            text-align: center;
+            width: 28px;
+            border-right: 1px solid #8a8c8e;
+            z-index: 9;
+        }
+
+        input[type="text"], 
+        input[type="password"] {
+            width: 100%;
+            padding: 8px 0 10px 40px;
+            height: 30px;
+            box-sizing: border-box;
+            outline: none;
+            border: 0;
+            color: #757474;
+            background-color: #ffffff;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            background-color: #f58220;
+            color: #f4f4f4;
+            border: 0;
+            width: 100%;
+            height: 35px;
+            font-family: century;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #e6730d;
+        }
+
+        .forget {
+            text-align: center;
+            color: #f4f4f4;
+            font-size: 12px;
+            margin: 15px 0;
+        }
+
+        .forget a {
+            color: #f4f4f4;
+            text-decoration: none;
+        }
+
+        .forget a:hover {
+            text-decoration: underline;
+        }
+
+        .support {
+            position: fixed;
+            top: 50%;
+            right: 7px;
+            color: #ffffff;
+            font-size: 13px;
+            font-family: century;
+            text-transform: uppercase;
+            font-weight: normal;
+            width: 19px;
+            height: 85px;
+            z-index: 999;
+        }
+
+        .support div {
+            transform: rotate(270deg);
+            white-space: nowrap;
+            margin-top: 65px;
+        }
+
+        @media (max-width: 768px) {
+            .header img {
+                height: 80px;
+            }
+            
+            .form-container {
+                width: 90%;
+            }
+            
+            .support {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="vbox">
+        <div class="support">
+            <div>Technical Support</div>
+        </div>
+        
+        <header class="header">
+            <img src="new-logo.png" alt="SPHINX-PORTAL Logo">
+        </header>
+        
+        <div class="spliter">
+            <div id="orange" class="orange" style="width: 26%"></div>
+        </div>
+        
+        <section class="hbox">
+            <div class="form-container">
+                <form method="post" action="/login" id="loginForm" class="form">
+                    <div class="input_field">
+                        <span class="fa fa-user"></span>
+                        <input type="text" name="username" placeholder="Username" required>
+                    </div>
+
+                    <!-- User type radio options -->
+                    <div class="options" style="margin-bottom: 15px; display: flex; justify-content: space-between;">
+                        <div class="radio-inline" style="display: flex; align-items: center;">
+                            <div class="choice">
+                                <span class="checked">
+                                    <input id="rd1" type="radio" name="type" value="1" checked="checked">
+                                </span>
+                            </div>
+                            <label for="rd1" style="margin-left: 5px;">Student</label>
+                        </div>
+                        <div class="radio-inline" style="display: flex; align-items: center;">
+                            <div class="choice">
+                                <span>
+                                    <input id="rd4" type="radio" name="type" value="6">
+                                </span>
+                            </div>
+                            <label for="rd4" style="margin-left: 5px;">Graduate</label>
+                        </div>
+                        <div class="radio-inline" style="display: flex; align-items: center;">
+                            <div class="choice">
+                                <span>
+                                    <input id="rd3" type="radio" name="type" value="3">
+                                </span>
+                            </div>
+                            <label for="rd3" style="margin-left: 5px;">Parent</label>
+                        </div>
+                        <div class="radio-inline" style="display: flex; align-items: center;">
+                            <div class="choice">
+                                <span>
+                                    <input id="rd2" type="radio" name="type" value="2">
+                                </span>
+                            </div>
+                            <label for="rd2" style="margin-left: 5px;">Staff</label>
+                        </div>
+                    </div>
+                    
+                    <div class="input_field">
+                        <span class="fa fa-asterisk"></span>
+                        <input type="password" name="password" placeholder="Password" required>
+                    </div>
+                    
+                    <input type="submit" value="Login">
+                    
+                    <div class="forget">
+                        <a href="/forgot-password">Forgot your password?</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </section>
+
+    <script>
+        // Animation for the orange progress bar
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                var elem = document.getElementById("orange");
+                var width = 26;
+                var id = setInterval(frame, 10);
+                
+                function frame() {
+                    if (width >= 100) {
+                        width = 26;
+                    } else {
+                        width = width + 0.08;
+                        elem.style.width = width + "%";
+                    }
+                }
+            }, 1000);
+            
+            // Simple login functionality (accepts any credentials)
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Redirect to results page (you can replace this with actual authentication)
+                window.location.href = 'results.html';
+            });
+        });
+    </script>
+</body>
+</html>
